@@ -6,7 +6,7 @@ import ProjectBackEnd.backend.Model.Product;
 
 
 public interface ProductRepository extends JpaRepository <Product, Long>{
-    Product findByProductName(String productName);
+    Product findByProductId(Long id);
 
 }
 

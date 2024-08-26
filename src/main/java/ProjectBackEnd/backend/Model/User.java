@@ -22,9 +22,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
-    @NotEmpty(message = "Name is required")
-    private String name;
-
     @NotEmpty(message = "Username is required")
     private String username;
 
@@ -42,11 +39,9 @@ public class User {
 
     User(){}
 
-    public User(@NotEmpty(message = "Name is required") String name,
-            @NotEmpty(message = "Username is required") String username,
+    public User(@NotEmpty(message = "Username is required") String username,
             @NotEmpty(message = "Email is required") String email,
             @NotEmpty(message = "Password is required") String password) {
-        this.name = name;
         this.username = username;
         this.email = email;
         this.password = password;
@@ -58,14 +53,6 @@ public class User {
 
     public void setUserId(Long userId) {
         this.userId = userId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getUsername() {

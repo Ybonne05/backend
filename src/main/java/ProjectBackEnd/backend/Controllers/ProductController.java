@@ -49,9 +49,7 @@ public class ProductController {
         .map(product -> {
             product.setProductName(newProduct.getProductName());
             product.setDescription(newProduct.getDescription());
-            product.setSmallPrice(newProduct.getSmallPrice());
-            product.setLargePrice(newProduct.getLargePrice());
-            product.setImageUrl(newProduct.getImageUrl());
+            product.setUrl(newProduct.getUrl());
             return repo.save(product);
         }).orElseGet(()->{
             return repo.save(newProduct);

@@ -41,7 +41,7 @@ public class UserController {
     @PostMapping("/register/admin")
     public ResponseEntity<?> registerAdmin(@RequestBody RegistrationRequest entity) {
         //check if user exist
-        if(userRepository.existsByUsername(passwordEncoder.encode(entity.getName()+entity.getEmail()))){
+        if(userRepository.existsByUsername(passwordEncoder.encode(entity.getEmail()))){
             return new ResponseEntity<>("An account already exist with similar credentials", HttpStatus.BAD_REQUEST);
         }
         if(userRepository.existsByEmail(entity.getEmail())){
@@ -49,8 +49,7 @@ public class UserController {
         }
         
         User user = new User(
-            entity.getName(), 
-            passwordEncoder.encode(entity.getName()+entity.getEmail()), 
+            passwordEncoder.encode(entity.getEmail()), 
             entity.getEmail(), 
             passwordEncoder.encode(entity.getPassword())
             );
@@ -65,7 +64,7 @@ public class UserController {
     @PostMapping("/register/user")
     public ResponseEntity<?> registerUser(@RequestBody RegistrationRequest entity) {
         //check if user exist
-        if(userRepository.existsByUsername(passwordEncoder.encode(entity.getName()+entity.getEmail()))){
+        if(userRepository.existsByUsername(passwordEncoder.encode(entity.getEmail()))){
             return new ResponseEntity<>("An account already exist with similar credentials", HttpStatus.BAD_REQUEST);
         }
         if(userRepository.existsByEmail(entity.getEmail())){
@@ -73,8 +72,7 @@ public class UserController {
         }
         
         User user = new User(
-            entity.getName(), 
-            passwordEncoder.encode(entity.getName()+entity.getEmail()), 
+            passwordEncoder.encode(entity.getEmail()), 
             entity.getEmail(), 
             passwordEncoder.encode(entity.getPassword())
             );

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ProjectBackEnd.backend.DTO.CartDTO;
 import ProjectBackEnd.backend.Model.AddOns;
 import ProjectBackEnd.backend.Model.Cart;
+import ProjectBackEnd.backend.Model.Category;
 import ProjectBackEnd.backend.Model.Product;
 import ProjectBackEnd.backend.Repository.AddonsRepository;
 import ProjectBackEnd.backend.Repository.CartRepository;
@@ -34,15 +35,20 @@ public class CartController {
 
     @PostMapping("/new") 
     public String addToCart(@RequestBody CartDTO entity){
-        Product product = productRepository.findByProductName(entity.getProductName());
+        Product product = productRepository.findByProductId(entity.getProductId());
         AddOns addOns = addonsRepository.findByAddOnsId(entity.getAddOnsId());
         Cart cart = new Cart();
         cart.setProduct(Collections.singleton(product));
         cart.setUserId(entity.getUserId());
         cart.setQuantity(entity.getQuantity());
+        cart.setCupSize(entity.getCupSize());
+        cart.setSugarLevel(entity.getSugarLevel());
+        cart.setTotalAmount(entity.getTotalAmount());
+        cart.setAddOns(Collections.singleton(addOns));
         cartRepository.save(cart);
-        return "added to cart";
+        return "A new cart has been added";
     }
+
 
     @GetMapping("/{userId}")
     public List<Cart> getCartItems(@PathVariable Long userId){
@@ -51,5 +57,5 @@ public class CartController {
     
 
     
-
+    
 }

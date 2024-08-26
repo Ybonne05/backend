@@ -9,48 +9,70 @@ public class AddOns {
 
     @Id
     @GeneratedValue Long addOnsId;
+    private int nata;
+    private int coffeeJelly;
     private int pearl;
-    private int crystal;
-    private int creamCheese;
+    private int cheeseCake;
+    private int grassJelly;
 
-    AddOns(){}
+    public AddOns(){}
 
-    public AddOns(int pearl, int crystal, int creamCheese) {
+    public AddOns(int nata, int coffeeJelly, int pearl, int cheeseCake, int grassJelly) {
+        this.nata = nata;
+        this.coffeeJelly = coffeeJelly;
         this.pearl = pearl;
-        this.crystal = crystal;
-        this.creamCheese = creamCheese;
-    }
-
-    public void setAddOnsId(Long addOnsId) {
-        this.addOnsId = addOnsId;
-    }
-
-    public void setPearl(int pearl) {
-        this.pearl = pearl;
-    }
-
-    public void setCrystal(int crystal) {
-        this.crystal = crystal;
-    }
-
-    public void setCreamCheese(int creamCheese) {
-        this.creamCheese = creamCheese;
+        this.cheeseCake = cheeseCake;
+        this.grassJelly = grassJelly;
     }
 
     public Long getAddOnsId() {
         return addOnsId;
     }
 
+    public void setAddOnsId(Long addOnsId) {
+        this.addOnsId = addOnsId;
+    }
+
+    public int getNata() {
+        return nata;
+    }
+
+    public void setNata(int nata) {
+        this.nata = nata;
+    }
+
+    public int getCoffeeJelly() {
+        return coffeeJelly;
+    }
+
+    public void setCoffeeJelly(int coffeeJelly) {
+        this.coffeeJelly = coffeeJelly;
+    }
+
     public int getPearl() {
         return pearl;
     }
 
-    public int getCrystal() {
-        return crystal;
+    public void setPearl(int pearl) {
+        this.pearl = pearl;
     }
 
-    public int getCreamCheese() {
-        return creamCheese;
+    public int getCheeseCake() {
+        return cheeseCake;
     }
+
+    public void setCheeseCake(int cheeseCake) {
+        this.cheeseCake = cheeseCake;
+    }
+
+    public int getGrassJelly() {
+        return grassJelly;
+    }
+
+    public void setGrassJelly(int grassJelly) {
+        this.grassJelly = grassJelly;
+    }
+
+    
 
 }

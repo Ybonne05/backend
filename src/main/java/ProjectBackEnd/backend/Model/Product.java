@@ -8,29 +8,25 @@ import jakarta.persistence.Id;
 public class Product {
 
     private @Id
-    @GeneratedValue Long id;
+    @GeneratedValue Long productId;
     private String productName;
     private String description;
-    private double smallPrice;
-    private double largePrice;
-    private String imageUrl;
+    private String url;
     
     Product(){}
 
-    public Product(String productName, String description, double smallPrice, double largePrice, String imageUrl) {
+    public Product(String productName, String description, String url) {
         this.productName = productName;
         this.description = description;
-        this.smallPrice = smallPrice;
-        this.largePrice = largePrice;
-        this.imageUrl = imageUrl;
+        this.url = url;
     }
 
-    public Long getId() {
-        return id;
+    public Long getProductId() {
+        return productId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setProductId(Long productId) {
+        this.productId = productId;
     }
 
     public String getProductName() {
@@ -49,30 +45,13 @@ public class Product {
         this.description = description;
     }
 
-    public double getSmallPrice() {
-        return smallPrice;
+       public String getUrl() {
+        return url;
     }
 
-    public void setSmallPrice(double smallPrice) {
-        this.smallPrice = smallPrice;
+    public void setUrl(String url) {
+        this.url = url;
     }
-
-    public double getLargePrice() {
-        return largePrice;
-    }
-
-    public void setLargePrice(double largePrice) {
-        this.largePrice = largePrice;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
     
 }
 
